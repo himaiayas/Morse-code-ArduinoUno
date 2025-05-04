@@ -1,8 +1,5 @@
 #include "global-flag.h"
-volatile bool interruptFlag = true;
-/*
-bool function(){
-  return true;
-}
 
-*/
+volatile bool interruptFlag = true;
+volatile bool isMorseBtnEnable = true;
+volatile bool isConsoleToMorse = true;
