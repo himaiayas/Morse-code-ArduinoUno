@@ -2,6 +2,8 @@
 #define GLOBAL_FLAGS_H
 
 extern volatile bool interruptFlag;  // Just a declaration (no memory allocated)
+extern volatile bool isMorseBtnEnable;
+extern volatile bool isConsoleToMorse;
 
 
 
