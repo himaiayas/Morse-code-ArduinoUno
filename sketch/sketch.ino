@@ -2,7 +2,8 @@
 
 void setup() {
   Serial.begin(9600);
-  Serial.print(interruptFlag);
+  Serial.print(function());
+  //this is test
 
 }
 

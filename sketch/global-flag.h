@@ -3,4 +3,8 @@
 
 extern volatile bool interruptFlag;  // Just a declaration (no memory allocated)
 
+
+
+//task
+extern bool function();
 #endif
