@@ -1,3 +1,7 @@
+#include <stdint.h>
+#pragma once
+#include "output-system.h"
+
 #ifndef MORSE_BUTTON_H
 #define MORSE_BUTTON_H
 
@@ -8,10 +12,11 @@ public:
     unsigned long morseThreshold;
     unsigned long debounceThreshold;
     bool isPressing;
+    OutputSystem outputSys;
 
-    MorseButton(int morsePin);
+    MorseButton(int morsePin, OutputSystem outputSys);
 
-    void detectClick();
+    uint8_t detectClick();
 
     
 };

@@ -1,3 +1,4 @@
+#pragma once
 #include <LiquidCrystal.h>
 #include <Arduino.h>
 // const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
@@ -16,6 +17,10 @@ public:
 
     void setBuzzerLED(int value); //value = LOW or HIGH
     void setLCD(String message);
+
+    void setMessageLCD(String message);
+    void addMorseLCD(String morse); //single . or _
+    void resetMorseLCD();
 
     
 };
