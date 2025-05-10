@@ -15,7 +15,7 @@ public:
     OutputSystem(int buzzerPin, int ledPin, LiquidCrystal lcdDisplay);
 
     void setBuzzerLED(int value); //value = LOW or HIGH
-    void setLCD(String word);
+    void setLCD(String message);
 
     
 };

@@ -8,5 +8,7 @@ extern volatile bool isConsoleToMorse;
 
 
 //task
-extern bool function();
+extern bool function(){
+    
+}
 #endif
