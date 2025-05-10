@@ -4,6 +4,15 @@
 class MorseButton{
 public:
     int morsePin;
+    unsigned long latestClick;
+    unsigned long morseThreshold;
+    unsigned long debounceThreshold;
+    bool isPressing;
+
+    MorseButton(int morsePin);
+
+    void detectClick();
+
     
 };
 
