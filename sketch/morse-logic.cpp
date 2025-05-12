@@ -4,24 +4,20 @@
 
 
 static const MorseEntry MorseLogic::morseEncoder[26]={
-  {'E',"."},
-  {'T',"_"},
-  {'A',"_"},//TODO: insert all {letter,morseCode} for each letter;
-  {'B,"_'},{"C","_"},{"D","_"},{'F,"_'},{"G","_"},{"H","_"},
-  {'I,"_'},{"J","_"},{"K","_"}{'L,"_'},{"M","_"},{"N","_"},
-  {'O,"_'},{"P","_"},{"Q","_"},{'R,"_'},{"S","_"},{"U","_"},
-  {'V,"_'},{"W","_"},{"X","_"}{'Y,"_'},{"Z","_"};
+  {'A',"._"},//TODO: insert all {letter,morseCode} for each letter;
+  {'B',"_..."},{"C","_._."},{"D","_.."},{'E',"."},{'F,".._.'},{"G","__."},{"H","...."},
+  {'I,"..'},{"J",".___"},{"K","_._"}{'L,"._..'},{"M","__"},{"N","_."},
+  {'O',"___"},{"P",".__."},{"Q","__._"},{'R',"._."},{"S","..."}, {'T',"_"},{"U",".._"},
+  {'V',"..._"},{"W",".__"},{"X","_.._"}{'Y,"_.__'},{"Z","__.."}
 };
-const int morseTableSize=sizeof(morseTable)/sizeof(MorseEntry);
+
 static String MorseLogic::encode(char letter){
-  input=std::toupper(static_cast<unsigned char>(letter));
-  for(int i=0;i<morseTableSize;i++){
-    if(morseTable[i].letter==letter){
-      return morseTable[i].code;
-    }
+  char input=toupper(letter);
+  if(letter>='A'&&letter<='Z'){
+    return morseEncoder[letter-'A'].code
   }
+  return "";
   //make sure letter is uppercase
   //find matching letter in morseEncoder array and return morse code
   //Note* example if(morseEncoder[0].letter == 'E') return morseEncoder[0].code;
-  return "";
 }
