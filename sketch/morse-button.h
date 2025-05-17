@@ -1,6 +1,9 @@
 #include <stdint.h>
-#pragma once
 #include "output-system.h"
+#include "enum.h"
+#pragma once
+
+
 
 #ifndef MORSE_BUTTON_H
 #define MORSE_BUTTON_H
@@ -16,7 +19,9 @@ public:
 
     MorseButton(int morsePin, OutputSystem outputSys);
 
-    uint8_t detectClick();
+    MorseLetterEnum detectClick();
+
+    void reset();
 
     
 };
