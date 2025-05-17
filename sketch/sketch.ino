@@ -12,7 +12,7 @@
 const int rs = 12, en = 11, d4 = 10, d5 = 9, d6 = 8, d7 = 7;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-const int buzzerPin = 6 ;
+const int buzzerPin = 6;
 const int ledPin = 5;
 
 const int resetPin = 2;
@@ -48,8 +48,6 @@ void loop() {
     isMorseFromSerialRunning = false;
   }
 
-
-
   MorseLetterEnum signal = morseBtnSys.detectClick();
   uint8_t enter = digitalRead(enterPin);
   if (signal!=MorseLetterEnum::NONE){
@@ -77,7 +75,6 @@ void handleOnMorseBtnClick(MorseLetterEnum signal){
       resetSpeedType();
       isSpeedTypeRunning = true;
     }
-
     Serial.println(morseLetterEnumToChar(signal));
 
     bool res = MorseLogic::decode(signal);

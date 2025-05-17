@@ -22,22 +22,22 @@ void OutputSystem::setBuzzerLED(int value){
   }
 
 
-void OutputSystem::addMorseLCD(MorseLetterEnum code){
+void OutputSystem::addMorseLCD(MorseLetterEnum code){ //add morse sequence on 2nd line of lcd
   lcdDisplay.setCursor(lcdMorseCursor,1);
   lcdDisplay.print(morseLetterEnumToChar(code));
   lcdMorseCursor++;
 }
-void OutputSystem::setMessageLCD(String message){
+void OutputSystem::setMessageLCD(String message){ //set 1st line of lcd
   lcdDisplay.setCursor(0,0);
   lcdDisplay.print(fillEndingSpaces(message));
 }
-void OutputSystem::resetMorseLCD(){
+void OutputSystem::resetMorseLCD(){ //reset 2nd line lcd
   lcdMorseCursor = 0;
   lcdDisplay.setCursor(0, 1);
   lcdDisplay.print("                ");
 }
 
-void OutputSystem::printEndSpeedTyping(double lpm, size_t fail){
+void OutputSystem::printEndSpeedTyping(double lpm, size_t fail){ //lcd print result
   lcdDisplay.clear();
   lcdDisplay.setCursor(0, 0);
   lcdDisplay.print("LPM = " + String(lpm));
@@ -45,7 +45,7 @@ void OutputSystem::printEndSpeedTyping(double lpm, size_t fail){
   lcdDisplay.print("Fails = " + String(fail));
 }
 
-void OutputSystem::outSignal(MorseLetterEnum code){
+void OutputSystem::outSignal(MorseLetterEnum code){ //output morse signal and delay for some duration
   switch (code){
     case MorseLetterEnum::DOT:
       setBuzzerLED(HIGH);

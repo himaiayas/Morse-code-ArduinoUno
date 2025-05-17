@@ -23,7 +23,7 @@ MorseLetterEnum MorseButton::detectClick(){
     outputSys.setBuzzerLED(HIGH);
     latestClick = millis();
   }
-  else if (input && isPressing && millis()-latestClick>=50){
+  else if (input && isPressing && millis()-latestClick>=debounceThreshold){
     isPressing = false;
     outputSys.setBuzzerLED(LOW);
     if(millis()-latestClick>=morseThreshold){
