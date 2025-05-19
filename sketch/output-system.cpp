@@ -12,6 +12,7 @@ OutputSystem::OutputSystem(int buzzerPin, int ledPin, LiquidCrystal& lcdDisplay)
     pinMode(ledPin, OUTPUT);
     digitalWrite(buzzerPin,HIGH);
     digitalWrite(ledPin,LOW);
+    lcdDisplay.begin(16,2);
   };
 
 

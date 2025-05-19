@@ -10,33 +10,27 @@
 #include <LiquidCrystal.h>
 
 const int rs = 12, en = 11, d4 = 10, d5 = 9, d6 = 8, d7 = 7;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-
 const int buzzerPin = 6;
 const int ledPin = 5;
-
 const int resetPin = 2;
 const int morsePin = 4;
 const int enterPin = 3;
 
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 OutputSystem outputSys(buzzerPin, ledPin, lcd);
 MorseButton morseBtnSys(morsePin,outputSys);
 
-
-
 void setup() {
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
   pinMode(morsePin, INPUT);
   pinMode(enterPin, INPUT);
   pinMode(resetPin,INPUT);
 
   Serial.begin(9600);
-  Serial.print("start");
-  lcd.begin(16,2);
 
   outputSys.setMessageLCD(speedTypeStr.substring(speedTypeIndex, speedTypeIndex+16));
-  attachInterrupt(digitalPinToInterrupt(resetPin), resetBtnInterrupt, FALLING);
-
-  
+  attachInterrupt(digitalPinToInterrupt(resetPin), resetBtnInterrupt, FALLING); 
 }
 
 void loop() {
@@ -54,7 +48,7 @@ void loop() {
     handleOnMorseBtnClick(signal);
   }
   
-  else if (enter==LOW && MorseLogic::index!=0){
+  else if (enter==LOW && MorseLogic::getDecoderIndex() !=0){
     char ch = MorseLogic::getCurDecoded();
     handleOnEnterChSpeedType(ch);
   }
@@ -154,7 +148,6 @@ if (ch==toupper(speedTypeStr[speedTypeIndex])){
     outputSys.setMessageLCD(speedTypeStr.substring(speedTypeIndex, speedTypeIndex+16));
 
     morseBtnSys.reset(); 
-     
   }
 
   void resetBtnInterrupt(){
@@ -172,7 +165,6 @@ if (ch==toupper(speedTypeStr[speedTypeIndex])){
     else enableMorseFromSerial = true;
 
     isMorseFromSerialRunning = false;
-    
   }
 
 

@@ -1,6 +1,6 @@
+#pragma once
 #include <Arduino.h>
 
-#pragma once
 #ifndef GLOBAL_FLAGS_H
 #define GLOBAL_FLAGS_H
 

@@ -23,7 +23,7 @@ static String MorseLogic::encode(char letter){
   if (upperLetter>='A' && upperLetter<='Z'){
     return morseEncoder[upperLetter-'A'].code;
   }
-  return "";
+  return;
 }
 
 static bool MorseLogic::decode(MorseLetterEnum code){
@@ -44,4 +44,8 @@ static char MorseLogic::getCurDecoded(){
   char ch = morseDecoder[index];
   index=0;
   return ch;
+}
+
+static size_t MorseLogic::getDecoderIndex(){
+  return index;
 }

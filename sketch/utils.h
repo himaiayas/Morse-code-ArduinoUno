@@ -1,7 +1,7 @@
+#pragma once
 #include <Arduino.h>
 #include "enum.h"
 
-#pragma once
 #ifndef UTILS_H
 #define UTILS_H
 
